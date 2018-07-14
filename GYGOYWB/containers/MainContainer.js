@@ -1,29 +1,35 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
 import Card from '../inputs/Card'
 import {cards} from './models';
 
 export default class MainContainer extends React.Component {
 
   renderCards = () => {
-      return cards.map((card, index) =>
+    
+    return cards.map((card, index) =>
            {
-            return
+            return(
               <Card
+                key={index}
                 text={card.text}
                 index={index}
-              />;
+              />);
           });
   };
-
+// {
+//   this.renderCards()
+// }
   render(){
+    let count = 0;
     return (
-      <View style={styles.containerDefaults}>
-      {
-          this.renderCards()
-      }
+      <View
+        style={styles.containerDefaults}>
+        {
+        this.renderCards()
+        }
       </View>
-    );
+    )
   }
 }
 
